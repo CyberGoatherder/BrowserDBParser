@@ -5,7 +5,7 @@ a more friendly human-readable CSV format. Useful during IR investigations when 
 
 ## Description
 
-`BrowserDBParser.py` can be used to take an input of a web browser's `History` SQLite DB outputting two CSV files which detail web browsing and file download activity.
+`BrowserDBParser.py` can take a web browser's `History` SQLite DB as input outputting two CSV files which detail web browsing and file download activity.
 
 • Auto-detects browser type
 

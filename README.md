@@ -9,7 +9,7 @@ a more friendly human-readable CSV format. Useful during IR investigations when 
 
 • Auto-detects browser type
 
-• Converts Epoch / Webkit timestamps to human-readable time format
+• Converts Epoch / Webkit / Apple Cocoa Core Data timestamps to human-readable time format
 
 • Outputs relevant information to time-sorted .CSV files
 

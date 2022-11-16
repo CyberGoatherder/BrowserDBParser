@@ -18,7 +18,7 @@ Currently supports all Chromium-based (Chrome, Edge, Brave, Opera etc.) and Fire
 
 ## Usage
 
-```python
+```
  _____                                  ____   _____  _____
 | __  | ___  ___  _ _ _  ___  ___  ___ |    \ | __  ||  _  | ___  ___  ___  ___  ___
 | __ -||  _|| . || | | ||_ -|| -_||  _||  |  || __ -||   __|| .'||  _||_ -|| -_||  _|
@@ -43,7 +43,7 @@ python BrowserDBParser.py /path/to/DB/file -o /path/to/DB/output
 
 ### Example
 
-```python
+```
 user@user: BrowserDBParser.py ~/Documents/Files/browser/History -o ~/Documents/Files/browser/ 
  _____                                  ____   _____  _____
 | __  | ___  ___  _ _ _  ___  ___  ___ |    \ | __  ||  _  | ___  ___  ___  ___  ___

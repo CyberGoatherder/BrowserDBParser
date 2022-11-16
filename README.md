@@ -50,7 +50,7 @@ user@user: BrowserDBParser.py ~/Documents/Files/browser/History -o ~/Documents/F
 | __  | ___  ___  _ _ _  ___  ___  ___ |    \ | __  ||  _  | ___  ___  ___  ___  ___
 | __ -||  _|| . || | | ||_ -|| -_||  _||  |  || __ -||   __|| .'||  _||_ -|| -_||  _|
 |_____||_|  |___||_____||___||___||_|  |____/ |_____||__|   |__,||_|  |___||___||_|
-@CyberGoatherder
+v1.0   @CyberGoatherder
 
 Selected DB File: '/home/user/Documents/Files/browser/History'
 Selected Output Folder: '/home/user/Documents/Files/browser/'
@@ -61,8 +61,8 @@ Selected Output Folder: '/home/user/Documents/Files/browser/'
 [+] Connected to SQLite DB
 
 [+] Converting timestamps to human readable (Matching current system timezone)
-[+] Browsing history saved to: /home/user/Documents/Files/browser/Chromium_Browsing_History.csv
-[+] Download history saved to: /home/user/Documents/Files/browser/Chromium_Download_History.csv
+[+] Browsing history saved to: '/home/user/Documents/Files/browser/Chromium_Browsing_History.csv'
+[+] Download history saved to: '/home/user/Documents/Files/browser/Chromium_Download_History.csv'
 
 [+] Disconnected from SQLite DB
 ```

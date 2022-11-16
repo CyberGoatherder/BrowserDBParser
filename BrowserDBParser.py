@@ -11,11 +11,11 @@ print("""
 | __  | ___  ___  _ _ _  ___  ___  ___ |    \ | __  ||  _  | ___  ___  ___  ___  ___
 | __ -||  _|| . || | | ||_ -|| -_||  _||  |  || __ -||   __|| .'||  _||_ -|| -_||  _|
 |_____||_|  |___||_____||___||___||_|  |____/ |_____||__|   |__,||_|  |___||___||_|
-@CyberGoatherder
+v1.0   @CyberGoatherder
 """)
 
 ### Set sleep time
-delay = 0.5
+delay = 0.15
 
 ### Set Args and DB file variable
 parser = argparse.ArgumentParser(description="Browser History DB parser")
@@ -54,7 +54,7 @@ else:
     print("[+] A valid DB type could not be found, exiting");sleep(delay)
     exit()
 print("[+] Determined browser type: "+ browser + "\n");sleep(delay)
-print("[+] Connected to SQLite DB\n");sleep(delay)
+print("[+] Connected to the SQLite DB\n");sleep(0.6)
 
 ### Extract relevant info from DB file convert to human readable time and save to file
 if browser == "Chromium-based":
@@ -67,14 +67,22 @@ elif browser == "Mozilla-based":
     downloadfile = "Firefox_Download_History.csv"
     db_browse = pd.read_sql_query("SELECT datetime(last_visit_date/1000000, 'unixepoch', 'localtime') AS last_visit_date, title, url FROM moz_places ORDER BY last_visit_date DESC;", sqliteConnection)
     db_download = pd.read_sql_query("SELECT datetime(dateAdded/1000000, 'unixepoch', 'localtime') AS dateAdded, content FROM moz_annos ORDER BY dateAdded DESC;", sqliteConnection)
+elif browser == "Safari-based":
+    browsingfile = "Safari_Browsing_History.csv"
+    downloadfile = "N/A"
+    db_browse = pd.read_sql_query("SELECT datetime(visit_time + 978307200, 'unixepoch', 'localtime') AS visit_time, title, url FROM history_visits INNER JOIN history_items ON history_items.id = history_visits.history_item ORDER BY visit_time DESC;", sqliteConnection)
 browsingoutput = args_output + browsingfile
 downloadoutput = args_output + downloadfile
+
+### Save data to CSV files
 print("[+] Converting timestamps to human readable (Matching current system timezone)");sleep(delay)
 db_browse.to_csv(browsingoutput, index=False)
-print("[+] Browsing history saved to: " + browsingoutput);sleep(delay)
-db_download.to_csv(downloadoutput, index=False)
-print("[+] Download history saved to: " + downloadoutput);sleep(delay)
-
+print("[+] Browsing history saved to: '" + browsingoutput + "'");sleep(delay)
+if browser == "Chromium-based" or browser == "Mozilla-based":
+    db_download.to_csv(downloadoutput, index=False)
+    print("[+] Download history saved to: '" + downloadoutput + "'");sleep(delay)
+elif browser == "Safari-based":
+    print("[!] Download history is not stored in an SQLite DB for this browser, consider reviewing the 'Download.plist' file!");sleep(delay)
 # Close out DB connection
 cursor.close()
 sqliteConnection.close()

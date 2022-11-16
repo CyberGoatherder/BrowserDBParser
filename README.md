@@ -23,7 +23,7 @@ Currently supports all Chromium-based (Chrome, Edge, Brave, Opera etc.) and Fire
 | __  | ___  ___  _ _ _  ___  ___  ___ |    \ | __  ||  _  | ___  ___  ___  ___  ___
 | __ -||  _|| . || | | ||_ -|| -_||  _||  |  || __ -||   __|| .'||  _||_ -|| -_||  _|
 |_____||_|  |___||_____||___||___||_|  |____/ |_____||__|   |__,||_|  |___||___||_|
-@CyberGoatherder
+v1.0   @CyberGoatherder
 
 usage: parser.py [-h] [-o OUTPUT] path
 
@@ -45,7 +45,6 @@ python BrowserDBParser.py /path/to/DB/file -o /path/to/DB/output
 
 ```python
 user@user: BrowserDBParser.py ~/Documents/Files/browser/History -o ~/Documents/Files/browser/ 
-
  _____                                  ____   _____  _____
 | __  | ___  ___  _ _ _  ___  ___  ___ |    \ | __  ||  _  | ___  ___  ___  ___  ___
 | __ -||  _|| . || | | ||_ -|| -_||  _||  |  || __ -||   __|| .'||  _||_ -|| -_||  _|

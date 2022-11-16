@@ -70,4 +70,4 @@ Selected Output Folder: '/home/user/Documents/Files/browser/'
 
 ### Roadmap
 
-[1] Implement Safari support. 
+~[1] Implement Safari support.~

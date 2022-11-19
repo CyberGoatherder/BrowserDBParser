@@ -59,8 +59,8 @@ print("[+] Connected to the SQLite DB\n");sleep(0.6)
 if browser == "Chromium-based":
     browsingfile = "Chromium_Browsing_History.csv"
     downloadfile = "Chromium_Download_History.csv"
-    db_browse = pd.read_sql_query("SELECT datetime((last_visit_time/1000000)-11644473600, 'unixepoch', 'localtime') AS last_visit_time, title, url FROM urls ORDER BY last_visit_time DESC;", sqliteConnection)
-    db_download = pd.read_sql_query("SELECT datetime((start_time/1000000)-11644473600, 'unixepoch', 'localtime') AS start_time, current_path, tab_url, referrer, total_bytes FROM downloads ORDER BY start_time DESC;", sqliteConnection)
+    db_browse = pd.read_sql_query("SELECT datetime((last_visit_time/1000000)-11644473600, 'unixepoch', 'localtime') AS last_visit_time, title, (visits.visit_duration / 3600 / 1000000) || ' h ' || strftime('%M m %S s', visits.visit_duration / 1000000 / 86400.0) AS visit_duration, urls.url AS url FROM urls LEFT JOIN visits ON urls.id = visits.url ORDER BY last_visit_time DESC;", sqliteConnection)
+    db_download = pd.read_sql_query("SELECT datetime((start_time/1000000)-11644473600, 'unixepoch', 'localtime') AS start_time, total_bytes, received_bytes, mime_type, current_path AS path, tab_url, referrer FROM downloads ORDER BY start_time DESC;", sqliteConnection)
 elif browser == "Mozilla-based":
     browsingfile = "Firefox_Browsing_History.csv"
     downloadfile = "Firefox_Download_History.csv"

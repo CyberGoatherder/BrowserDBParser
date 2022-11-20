@@ -13,7 +13,7 @@ a more friendly human-readable CSV format. Useful during IR investigations when 
 
 • Outputs relevant information to time-sorted .CSV files
 
-Currently supports all Chromium-based (Chrome, Edge, Brave, Opera etc.) and Firefox-based (Firefox, Waterfox etc.) browsers. 
+Currently supports all Chromium-based (Chrome, Edge, Brave, Opera etc.), Firefox-based (Firefox, Waterfox etc.) and Safari browsers. 
 
 
 ## Usage

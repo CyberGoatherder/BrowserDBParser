@@ -49,7 +49,7 @@ Firefox: /home/<username>/.mozilla/firefox/<profile folder>/places.sqlite
 ## Sample
 A sample file has been provided. 
 
-**Scenario**: It's been reported that malware stored inside of a .ZIP has been executed on a machine. Can you use the sample file provided to determine where the .ZIP was downloaded from? At what time? And what actions lead to the user landing on the page serving malware?
+**Scenario**: It's been reported that malware stored inside of a .ZIP has been executed on a machine. Can you use the sample file provided to determine where the .ZIP was downloaded from? At what time? And what actions led to the user landing on the page serving malware?
 
 ## Requirements
 

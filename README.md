@@ -15,6 +15,43 @@ a more friendly human-readable CSV format. Useful during IR investigations when 
 
 Currently supports all Chromium-based (Chrome, Edge, Brave, Opera etc.), Firefox-based (Firefox, Waterfox etc.) and Safari browsers. 
 
+## Common History File Locations
+
+Quick reference for some of the most common browsers
+
+```
+Windows:
+
+Chrome: C:\Users\<username>\AppData\Local\Google\Chrome\User Data\Default\History
+E.G. C:\Users\Bob\AppData\Local\Google\Chrome\User Data\Default\History
+
+Firefox: C:\Users\<username>\AppData\Roaming\Mozilla\Firefox\Profiles\<profile folder>\places.sqlite
+E.G. C:\Users\Alice\AppData\Roaming\Mozilla\Firefox\Profiles\gq4yx1bn.default-release\places.sqlite
+
+Edge: C:\Users\<username>\AppData\Local\Microsoft\Edge\User Data\Default\History
+E.G. C:\Users\Bob\AppData\Local\Microsoft\Edge\User Data\Default\History
+
+```
+```
+Mac:
+
+Chrome: /Users/$USER/Library/Application Support/Google/Chrome/Default/History
+Firefox: /Users/<username>/Library/Application Support/Firefox/Profiles/<profile folder>/places.sqlite
+Safari: ~/Library/Safari/History.db
+```
+```
+Linux:
+
+Chrome: ~/.config/google-chrome/Default/History
+Firefox: /home/<username>/.mozilla/firefox/<profile folder>/places.sqlite
+
+```
+:bulb: **Tip:** Remember that for Chromium based browsers \Default\ is only valid if nobody has 'signed in' to the browser. Signing into the browser will create a new profile at \Profile1\ instead of \Default\\\.
+
+## Sample
+A sample file has been provided. 
+
+**Scenario**: It's been reported that malware stored inside of a .ZIP has been executed on a machine. Can you use the sample file provided to determine where the .ZIP was downloaded from? At what time? And what actions lead to the user landing on the page serving malware?
 
 ## Usage
 
@@ -69,4 +106,5 @@ Selected Output Folder: '/home/user/Documents/Files/browser/'
 
 ### Roadmap
 
-~[1] Implement Safari support.~
+~[1] Implement Safari support~
+~[2] Add a sample file~

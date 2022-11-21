@@ -44,7 +44,7 @@ Linux:
 Chrome: ~/.config/google-chrome/Default/History
 Firefox: /home/<username>/.mozilla/firefox/<profile folder>/places.sqlite
 ```
-:bulb: **Tip:** Remember that for Chromium based browsers \Default\ is only valid if nobody has 'signed in' to the browser. Signing into the browser will create a new profile at \Profile1\ instead of \Default\\\.
+:bulb: **Tip:** Remember that for Chromium-based browsers \Default\ is only valid if nobody has 'signed in' to the browser. Signing into the browser will create a new profile at \Profile1\ instead of \Default\\\.
 
 ## Sample
 A sample file has been provided. 

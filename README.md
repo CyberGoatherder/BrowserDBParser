@@ -30,7 +30,6 @@ E.G. C:\Users\Alice\AppData\Roaming\Mozilla\Firefox\Profiles\gq4yx1bn.default-re
 
 Edge: C:\Users\<username>\AppData\Local\Microsoft\Edge\User Data\Default\History
 E.G. C:\Users\Bob\AppData\Local\Microsoft\Edge\User Data\Default\History
-
 ```
 ```
 Mac:
@@ -44,7 +43,6 @@ Linux:
 
 Chrome: ~/.config/google-chrome/Default/History
 Firefox: /home/<username>/.mozilla/firefox/<profile folder>/places.sqlite
-
 ```
 :bulb: **Tip:** Remember that for Chromium based browsers \Default\ is only valid if nobody has 'signed in' to the browser. Signing into the browser will create a new profile at \Profile1\ instead of \Default\\\.
 

@@ -34,7 +34,7 @@ E.G. C:\Users\Bob\AppData\Local\Microsoft\Edge\User Data\Default\History
 ```
 Mac:
 
-Chrome: /Users/$USER/Library/Application Support/Google/Chrome/Default/History
+Chrome: /Users/<username>/Library/Application Support/Google/Chrome/Default/History
 Firefox: /Users/<username>/Library/Application Support/Firefox/Profiles/<profile folder>/places.sqlite
 Safari: ~/Library/Safari/History.db
 ```

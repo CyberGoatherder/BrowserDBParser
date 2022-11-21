@@ -107,4 +107,5 @@ Selected Output Folder: '/home/user/Documents/Files/browser/'
 ### Roadmap
 
 ~[1] Implement Safari support~
+
 ~[2] Add a sample file~

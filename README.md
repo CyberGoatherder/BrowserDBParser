@@ -66,7 +66,7 @@ pip install pandas
 | __  | ___  ___  _ _ _  ___  ___  ___ |    \ | __  ||  _  | ___  ___  ___  ___  ___
 | __ -||  _|| . || | | ||_ -|| -_||  _||  |  || __ -||   __|| .'||  _||_ -|| -_||  _|
 |_____||_|  |___||_____||___||___||_|  |____/ |_____||__|   |__,||_|  |___||___||_|
-v1.1   @CyberGoatherder
+v1.2   @CyberGoatherder
 
 usage: parser.py [-h] [-o OUTPUT] path
 
@@ -115,3 +115,5 @@ Selected Output Folder: '/home/user/Documents/Files/browser/'
 ~[1] Implement Safari support~
 
 ~[2] Add a sample file~
+
+~[3] Output to UTC always~

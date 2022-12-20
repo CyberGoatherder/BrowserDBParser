@@ -103,8 +103,8 @@ Selected Output Folder: '/home/user/Documents/Files/browser/'
 [+] Connected to SQLite DB
 
 [+] Converting timestamps to human readable (UTC)
-[+] Browsing history saved to: '/home/jmk/Documents/Files/browser/chall/Chromium_Browsing_History.csv'
-[+] Download history saved to: '/home/jmk/Documents/Files/browser/chall/Chromium_Download_History.csv'
+[+] Browsing history saved to: '/home/user/Documents/Files/browser/History/Chromium_Browsing_History.csv'
+[+] Download history saved to: '/home/user/Documents/Files/browser/History/Chromium_Download_History.csv'
 
 [+] Disconnected from SQLite DB
 ```

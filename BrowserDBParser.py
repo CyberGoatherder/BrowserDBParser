@@ -10,7 +10,7 @@ print(""" _____                                  ____   _____  _____
 | __  | ___  ___  _ _ _  ___  ___  ___ |    \ | __  ||  _  | ___  ___  ___  ___  ___
 | __ -||  _|| . || | | ||_ -|| -_||  _||  |  || __ -||   __|| .'||  _||_ -|| -_||  _|
 |_____||_|  |___||_____||___||___||_|  |____/ |_____||__|   |__,||_|  |___||___||_|
-v1.1   @CyberGoatherder
+v1.2   @CyberGoatherder
 """)
 
 ### Set sleep time
@@ -59,22 +59,22 @@ print("[+] Connected to the SQLite DB\n");sleep(0.6)
 if browser == "Chromium-based":
     browsingfile = "Chromium_Browsing_History.csv"
     downloadfile = "Chromium_Download_History.csv"
-    db_browse = pd.read_sql_query("SELECT datetime((last_visit_time/1000000)-11644473600, 'unixepoch', 'localtime') AS last_visit_time, (visits.visit_duration / 3600 / 1000000) || ' h ' || strftime('%M m %S s', visits.visit_duration / 1000000 / 86400.0) AS visit_duration, title, urls.url AS url FROM urls LEFT JOIN visits ON urls.id = visits.url ORDER BY last_visit_time DESC;", sqliteConnection)
-    db_download = pd.read_sql_query("SELECT datetime((start_time/1000000)-11644473600, 'unixepoch', 'localtime') AS start_time, total_bytes, received_bytes, mime_type, current_path AS path, tab_url, referrer FROM downloads ORDER BY start_time DESC;", sqliteConnection)
+    db_browse = pd.read_sql_query("SELECT datetime(visit_time / 1000000 + (strftime('%s', '1601-01-01T00:00:00')), 'unixepoch') AS visit_time_UTC, (visits.visit_duration / 3600 / 1000000) || ' h ' || strftime('%M m %S s', visits.visit_duration / 1000000 / 86400.0) AS visit_duration, title, urls.url AS url FROM urls LEFT JOIN visits ON urls.id = visits.url ORDER BY visit_time DESC;", sqliteConnection)
+    db_download = pd.read_sql_query("SELECT datetime(start_time / 1000000 + (strftime('%s', '1601-01-01T00:00:00')), 'unixepoch') AS download_start_UTC, total_bytes, received_bytes, mime_type, current_path AS path, tab_url, referrer FROM downloads ORDER BY start_time DESC;", sqliteConnection)
 elif browser == "Mozilla-based":
     browsingfile = "Firefox_Browsing_History.csv"
     downloadfile = "Firefox_Download_History.csv"
-    db_browse = pd.read_sql_query("SELECT datetime(last_visit_date/1000000, 'unixepoch', 'localtime') AS last_visit_date, title, url FROM moz_places ORDER BY last_visit_date DESC;", sqliteConnection)
-    db_download = pd.read_sql_query("SELECT datetime(dateAdded/1000000, 'unixepoch', 'localtime') AS dateAdded, content FROM moz_annos ORDER BY dateAdded DESC;", sqliteConnection)
+    db_browse = pd.read_sql_query("SELECT datetime(last_visit_date / 1000000 + (strftime('%s', '1970-01-01T00:00:00')), 'unixepoch') AS visit_time_UTC, title, url FROM moz_places ORDER BY last_visit_date DESC;", sqliteConnection)
+    db_download = pd.read_sql_query("SELECT datetime(dateAdded / 1000000 + (strftime('%s', '1970-01-01T00:00:00')), 'unixepoch') AS download_start_UTC, content FROM moz_annos ORDER BY dateAdded DESC;", sqliteConnection)
 elif browser == "Safari-based":
     browsingfile = "Safari_Browsing_History.csv"
     downloadfile = "N/A"
-    db_browse = pd.read_sql_query("SELECT datetime(visit_time + 978307200, 'unixepoch', 'localtime') AS visit_time, title, url FROM history_visits INNER JOIN history_items ON history_items.id = history_visits.history_item ORDER BY visit_time DESC;", sqliteConnection)
+    db_browse = pd.read_sql_query("SELECT datetime(visit_time + (strftime('%s', '2001-01-01T00:00:00')), 'unixepoch') AS visit_time_UTC, title, url FROM history_visits INNER JOIN history_items ON history_items.id = history_visits.history_item ORDER BY visit_time DESC;", sqliteConnection)
 browsingoutput = args_output + browsingfile
 downloadoutput = args_output + downloadfile
 
 ### Save data to CSV files
-print("[+] Converting timestamps to human readable (Matching current system timezone)");sleep(delay)
+print("[+] Converting timestamps to human readable (UTC)");sleep(delay)
 db_browse.to_csv(browsingoutput, index=False)
 print("[+] Browsing history saved to: '" + browsingoutput + "'");sleep(delay)
 if browser == "Chromium-based" or browser == "Mozilla-based":

@@ -5,7 +5,7 @@ a more friendly human-readable CSV format. Useful during IR investigations when 
 
 ## Description
 
-`BrowserDBParser.py` can take a web browser's History SQLite DB as input such as Chrome's `History` or Firefox's `places.sqlite` outputting two CSV files which detail web browsing and file download activity.
+`browserdbparser.py` can take a web browser's History SQLite DB as input such as Chrome's `History` or Firefox's `places.sqlite` outputting two CSV files which detail web browsing and file download activity.
 
 • Auto-detects browser type
 
@@ -68,7 +68,7 @@ pip install pandas
 |_____||_|  |___||_____||___||___||_|  |____/ |_____||__|   |__,||_|  |___||___||_|
 v1.2   @CyberGoatherder
 
-usage: parser.py [-h] [-o OUTPUT] path
+usage: browserdbparser.py [-h] [-o OUTPUT] path
 
 Browser History DB parser
 
@@ -87,7 +87,7 @@ python BrowserDBParser.py /path/to/DB/file -o /path/to/DB/output
 ### Example
 
 ```
-user@user: BrowserDBParser.py ~/Documents/Files/browser/History -o ~/Documents/Files/browser/ 
+user@user: browserdbparser.py ~/Documents/Files/browser/History -o ~/Documents/Files/browser/ 
  _____                                  ____   _____  _____
 | __  | ___  ___  _ _ _  ___  ___  ___ |    \ | __  ||  _  | ___  ___  ___  ___  ___
 | __ -||  _|| . || | | ||_ -|| -_||  _||  |  || __ -||   __|| .'||  _||_ -|| -_||  _|
